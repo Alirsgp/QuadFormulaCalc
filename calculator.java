@@ -11,7 +11,7 @@ public class calculator {
 		Scanner shirin = new Scanner(System.in);
 		boolean choicechecker = false;
 		boolean exceptionchecker = false;
-		System.out.println("Please enter your choice of operator:\n Enter 'add', 'subtract', 'multiply', 'divide', 'quadFormula', or 'Compound Interest'. \nEnter any letter to choose a new operator after selecting your operator, granted you chose the wrong operator");
+		System.out.println("Please enter your choice of operator:\n Enter 'add', 'subtract', 'multiply', 'divide', 'quadFormula', or 'Compound Interest'. \nEnter any letter to choose a new operator after selecting your operator, granted you chose the wrong operator.\n To exit the program, type 'exit'.");
 		
 		while(exceptionchecker == false) {
 			try {
@@ -26,6 +26,12 @@ public class calculator {
 		double secondNumberToAdd = shirin.nextDouble();
 		double sumofnumb = Adding(firstNumberToAdd, secondNumberToAdd);
 		System.out.println("The sum of the two numbers entered is " + sumofnumb);
+		choicechecker = true;
+		exceptionchecker = true;
+	    } 
+	    else if (choice.equals("exit")) {
+	    System.out.println("The program will now exit, bye!");
+		
 		choicechecker = true;
 		exceptionchecker = true;
 	    } 
