@@ -11,7 +11,7 @@ public class calculator {
 		Scanner shirin = new Scanner(System.in);
 		boolean choicechecker = false;
 		boolean exceptionchecker = false;
-		System.out.println("Please enter your choice of operator; enter 'add', 'subtract', 'multiply', 'divide', or 'quadFormula'. \nEnter any letter to choose a new operator after selecting your operator, granted you chose the wrong operator");
+		System.out.println("Please enter your choice of operator:\n Enter 'add', 'subtract', 'multiply', 'divide', 'quadFormula', or 'Compound Interest'. \nEnter any letter to choose a new operator after selecting your operator, granted you chose the wrong operator");
 		
 		while(exceptionchecker == false) {
 			try {
@@ -68,6 +68,23 @@ public class calculator {
 	
 	    }
 
+	    else if (choice.equals("Compound Interest")) {
+	    System.out.println("You chose: Compound Interest; Please enter P for Principal, r for rate of return, \nn for number of times compounded per year, and t for number of years borrowed. \nEnter any letter to choose another operator");
+		System.out.println("Please enter the Principal starting amount");
+		double principal = shirin.nextDouble();
+		System.out.println("Please enter the rate of return");
+		double rateOfReturn = shirin.nextDouble();
+		System.out.println("Please enter the number of times compounded per year");
+		double numberOfTimesCompounded = shirin.nextDouble();
+		System.out.println("Please enter the time in years, representing t");
+		double timeCompounded = shirin.nextDouble();
+		double accumulated = Compounding(principal, rateOfReturn, numberOfTimesCompounded, timeCompounded);
+		System.out.println("The accumulated amount is " + accumulated);
+		choicechecker = true;
+		exceptionchecker = true;
+	
+	    }
+
 	    else if (choice.equals("quadFormula")) {
         System.out.println("You chose: Quadratic Formula; \nplease enter three numbers; A, B, and C, the coefficients of X^2+X+(C). \nEnter any letter to choose another operator");
 		System.out.println("Please enter coefficient A");
@@ -92,6 +109,15 @@ public class calculator {
         	System.out.println("Try Again, enter the operator of your choice again and then only enter numbers");
         }
     }
+	}
+	public static double Compounding(double n1, double n2, double n3, double n4) {
+		double amountAccumulated;
+		
+		amountAccumulated = n1*Math.pow((1+(n2/n3)), n4*n3);
+		//P = n1, r = n2, n = n3, t = n4
+		
+		
+		return amountAccumulated;
 	}
 	public static double Adding(double n1, double n2) {
 		double sum;
