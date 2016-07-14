@@ -11,7 +11,7 @@ public class calculator {
 		Scanner shirin = new Scanner(System.in);
 		boolean choicechecker = false;
 		boolean exceptionchecker = false;
-		System.out.println("Please enter your choice of operator:\n Enter 'add', 'subtract', 'multiply', 'divide', 'quadFormula', or 'Compound Interest'. \nEnter any letter to choose a new operator after selecting your operator, granted you chose the wrong operator.\n To exit the program, type 'exit'.");
+		System.out.println("Please enter your choice of operator:\n Enter 'add', 'subtract', 'multiply', 'divide', 'MagicBall', 'quadFormula', or 'Compound Interest'. \nEnter any letter to choose a new operator after selecting your operator, granted you chose the wrong operator.\n To exit the program, type 'exit'.");
 		
 		while(exceptionchecker == false) {
 			try {
@@ -29,9 +29,10 @@ public class calculator {
 		choicechecker = true;
 		exceptionchecker = true;
 	    } 
+	  
+
 	    else if (choice.equals("exit")) {
 	    System.out.println("The program will now exit, bye!");
-		
 		choicechecker = true;
 		exceptionchecker = true;
 	    } 
@@ -45,6 +46,22 @@ public class calculator {
 		double secondNumberToSubtract = shirin.nextDouble();
 		double differenceOfNumb = Subtracting(firstNumberToSubtract, secondNumberToSubtract);
 		System.out.println("The difference of the two numbers entered is " + differenceOfNumb);
+		choicechecker = true;
+		exceptionchecker = true;
+	    } 
+
+	    else if (choice.equals("MagicBall")) {
+	    System.out.println("You chose: Magic Ball; please ask a Yes/No question, and the ball will tell you what your decision should be. \nEnter any letter to choose another operator");
+		System.out.println("Please enter your Yes/No question");
+		String question = shirin.nextLine();
+		double answer = MagicBall();
+		if (answer > 50) {
+			System.out.println("Yes");
+			System.out.println(answer);
+		} else if (answer < 50) {
+			System.out.println(answer);
+			System.out.println("No");
+		}
 		choicechecker = true;
 		exceptionchecker = true;
 	    } 
@@ -113,7 +130,7 @@ public class calculator {
 	        }
         } catch(Exception e) {
         	System.out.println("Try Again, enter the operator of your choice again and then only enter numbers");
-        }
+        } 
     }
 	}
 	public static double Compounding(double n1, double n2, double n3, double n4) {
@@ -174,5 +191,12 @@ public class calculator {
 		
 		
 		return quotient;
+	}
+	public static double MagicBall(){
+         double MagicNumber;
+         MagicNumber = Math.random()*100;
+         return MagicNumber;
+         // 0 and 1 ----- magicnumber > .9 * -> 90
+
 	}
 }
